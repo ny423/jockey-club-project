@@ -1,0 +1,31 @@
+1. What does slash(es) mean?
+/ - immediate child only
+// - child or grandchild
+
+2. How to filter element type?
+//* - all types of elements
+//input - input element type
+//button - button element type
+
+3. How to filter by attribute?
+//*[@id = "email"] - id attribute to match "email"
+//*[@title = "Search"] - title attribute full match
+//*[contains(@title, "Search")] - title partial match
+//*[text() = "Submit"] - to match with element text
+XPath//@href - to read href attribute of the element
+
+4. How about relative XPaths?
+//[@name = "results"]//*[@name = "title"] - element with name "title" anywhere under element with name "results"
+This is very useful for randomised element identifiers, because you can pick a reliable anchor parent element and write a relative XPath base on that to point to the seemingly randomised element.
+
+5. How about the nth match?
+(//XPath)[n] - point to the nth occurrence
+(//button)[3] - point to the third button
+(//table)[1]//tr[3] - means table 1 row 3
+
+6. Are all attributes equally important?
+@id is best if available, else @name is pretty good. @class isn't as unique. @title and text() are easy to read off from the screen but in some cases, there could be false matches of hidden elements.
+
+XPath is one of the ways which TagUI identifies something on a webpage. The other ways are CSS Selectors, giving attributes directly, using computer vision to match given image snapshots. TagUI auto-selects the best from your input.
+
+If comments from the community are substantial, then I could create some reference document and open-source it to share with the RPA community. You don't always need XPath, and there are Chrome extensions. But spending a couple of hours to learn it will let you manage web scenarios like a pro.
